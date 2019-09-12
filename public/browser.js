@@ -9,13 +9,19 @@ function itemTemplate(item) {
     </li>`
 }
 
-//Create Feature
+// Initial Page Load Render
+let ourHTML = items.map(function(item) {
+  return itemTemplate(item)
+}).join('')
+document.getElementById("item-list").insertAdjacentHTML("beforeend", ourHTML)
+
+// Create Feature
 let createField = document.getElementById("create-field")
 
 document.getElementById("create-form").addEventListener("submit", function(e) {
   e.preventDefault()
   axios.post('/create-item', {text: createField.value}).then(function(response) {
-    //Create the HTML for a new item
+    // Create the HTML for a new item
     document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate(response.data))
     createField.value = ""
     createField.focus()
@@ -26,7 +32,7 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
 
 
 document.addEventListener("click", function(e) {
-  //Delete Feature
+  // Delete Feature
   if (e.target.classList.contains("delete-me")) {
     if (confirm('Do you really want to delete this item permanently?')) {
       axios.post('/delete-item', {id: e.target.getAttribute("data-id")}).then(function() {
@@ -37,7 +43,7 @@ document.addEventListener("click", function(e) {
     }
   }
 
-  //Update Feature
+  // Update Feature
   if (e.target.classList.contains("edit-me")) {
     let userInput = prompt("Enter your desired new text", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML)
     if(userInput) {
