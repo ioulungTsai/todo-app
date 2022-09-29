@@ -1,3 +1,2 @@
 # todo-app
-
-A full stack web "todo" application built for my skills from [Learn JavaScript: Full-Stack from Scratch](https://www.udemy.com/course/learn-javascript-full-stack-from-scratch/).
+A project from - https://www.youtube.com/watch?v=DqaTKBU9TZk&ab_channel=SuperSimpleDev
