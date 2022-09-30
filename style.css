@@ -4,6 +4,40 @@
   box-sizing: border-box;
 }
 
+body {
+  min-width: 230px;
+	max-width: 550px;
+  background-color: #F5F5F5;
+  margin: 0 auto;
+}
+
 .new-todo:focus {
   outline: none;
+}
+
+.todo-app {
+  position: relative;
+  background-color: #FFFFFF;
+  margin: 150px 0;
+}
+
+.todo-app h1 {
+  position: absolute;
+  top: -120px;
+  width: 100%;
+  text-align: center;
+}
+
+.new-todo {
+  padding: 16px;
+  width: 100%;
+  border: none;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.info {
+  text-align: center;
 }
