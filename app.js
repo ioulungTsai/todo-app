@@ -1,13 +1,44 @@
-const input = document.querySelector('[data-todo="new"]')
-const list = document.querySelector("[data-todo='list']")
+const express = require('express')
+const bodyparser = require('body-parser')
 
-console.log(list)
+const app = express()
 
-input.addEventListener('keyup', (e) => {
-  if(e.key === 'Enter' && e.target.value.length) {
-    const li = document.createElement('li')
-    li.textContent = e.target.value.trim()
-    list.appendChild(li)
-    input.value = ''
+app.set('view engine', 'ejs')
+
+app.get('/', (req, res) => {
+  let today = new Date()
+  let currentDay = today.getDay()
+  let day = ''
+
+  switch(currentDay) {
+    case 0:
+      day = 'Sunday'
+      break
+    case 1:
+      day = 'Monday'
+      break
+    case 2:
+      day = 'Tuesday'
+      break
+    case 3:
+      day = 'Wednesday'
+      break
+    case 4:
+      day = 'Thursday'
+      break
+    case 5:
+      day = 'Friday'
+      break
+    case 6:
+      day = 'Saturday'
+      break
   }
+
+  res.render('list', {kindOfDay: day})
+
+})
+
+
+app.listen(3000, () => {
+  console.log('Server started on port 3000')
 })
