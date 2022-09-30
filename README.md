@@ -1,2 +1,2 @@
 # todo-app
-A project idea from - https://github.com/1Marc/todomvc-vanillajs-2022
+A project part of [Angela Yu's course] (https://www.udemy.com/course/the-complete-web-development-bootcamp/)
